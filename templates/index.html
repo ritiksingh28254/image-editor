@@ -1,0 +1,167 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
+-->
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required><br>
+        
+        <label for="width">Width:</label>
+        <input type="number" name="width" id="width"><br>
+
+        <label for="height">Height:</label>
+        <input type="number" name="height" id="height"><br>
+
+        <label for="fit">Fit:</label>
+    <select name="fit" id="fit">
+        <option value="crop">Crop</option>
+        <option value="max">Max</option>
+        <option value="fill">Fill</option>
+        <option value="contain">Contain</option>
+        <option value="cover">Cover</option>
+        <option value="scale">Scale</option>
+    </select><br>
+    <label for="mask">Mask:</label>
+<select name="mask" id="mask">
+    <option value="none">None</option>
+    <option value="circle">Circle</option>
+    <option value="rectangle">Rectangle</option>
+    <option value="ellipse">Ellipse</option>
+    <option value="polygon">Polygon</option>
+    <option value="custom">Custom</option>
+</select><br>
+
+<label for="mask_color">Mask Color:</label>
+<input type="color" name="mask_color" id="mask_color" value="#000000"><br>
+
+<label for="mask_opacity">Mask Opacity:</label>
+<input type="range" name="mask_opacity" id="mask_opacity" min="0" max="100" value="100">
+<span id="mask_opacity_value">100%</span><br>
+
+<label for="brightness">Brightness:</label>
+<input type="range" name="brightness" id="brightness" min="-100" max="100" value="0">
+<span id="brightness_value">0</span><br>
+
+<script>
+    const brightnessSlider = document.getElementById('brightness');
+    const brightnessValue = document.getElementById('brightness_value');
+
+    brightnessSlider.addEventListener('input', function() {
+        brightnessValue.textContent = this.value;
+    });
+</script>
+
+        
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Image</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose Image:</label>
+                <input type="file" name="file" id="file" required>
+            </div>
+
+            <div class="form-group">
+                <label for="width">Width:</label>
+                <input type="number" name="width" id="width" placeholder="Enter width (px)">
+            </div>
+
+            <div class="form-group">
+                <label for="height">Height:</label>
+                <input type="number" name="height" id="height" placeholder="Enter height (px)">
+            </div>
+
+            <div class="form-group">
+                <label for="fit">Fit:</label>
+                <select name="fit" id="fit">
+                    <option value="crop">Crop</option>
+                    <option value="max">Max</option>
+                    <option value="fill">Fill</option>
+                    <option value="contain">Contain</option>
+                    <option value="cover">Cover</option>
+                    <option value="scale">Scale</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="mask">Select Image Shape:</label>
+                <select name="mask" id="mask">
+                    <option value="none">None</option>
+                    <option value="circle">Circle</option>
+                    <option value="rectangle">Rectangle</option>
+                    <option value="ellipse">Ellipse</option>
+                    <option value="polygon">Polygon</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="mask_color">Mask Color:</label>
+                <input type="color" name="mask_color" id="mask_color" value="#000000">
+            </div>
+
+            <div class="form-group">
+                <label for="mask_opacity">Mask Opacity:</label>
+                <input type="range" name="mask_opacity" id="mask_opacity" min="0" max="100" value="100">
+                <span id="mask_opacity_value">100%</span>
+            </div>
+
+            <div class="form-group">
+                <label for="bri">Brightness:</label>
+                <input type="range" name="bri" id="brightness" min="-100" max="100" value="0">
+                <span id="brightness_value">0</span>
+            </div>
+
+            <button type="submit" class="submit-button">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        const brightnessSlider = document.getElementById('brightness');
+        const brightnessValue = document.getElementById('brightness_value');
+
+        brightnessSlider.addEventListener('input', function() {
+            brightnessValue.textContent = this.value;
+        });
+
+        const maskOpacitySlider = document.getElementById('mask_opacity');
+        const maskOpacityValue = document.getElementById('mask_opacity_value');
+
+        maskOpacitySlider.addEventListener('input', function() {
+            maskOpacityValue.textContent = this.value + '%';
+        });
+    </script>
+</body>
+</html>
